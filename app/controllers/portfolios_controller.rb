@@ -39,4 +39,11 @@ class PortfoliosController < ApplicationController
     end
   end
   
+  def destroy
+    @portfolio_item = Portfolio.find(params[:id])
+    @portfolio_item.destroy
+    flash[:danger] = "Record was removed"
+    redirect_to portfolios_url
+  end
+  
 end
